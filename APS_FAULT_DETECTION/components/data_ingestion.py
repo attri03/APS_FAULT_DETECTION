@@ -30,13 +30,13 @@ class DataIngestion:
             os.makedirs(self.data_ingestion_config.dic_folder_path)
             logging.info('Artifact directory formed')
 
-            df.to_csv(self.data_ingestion_config.raw_file_path)
+            df.to_csv(self.data_ingestion_config.raw_file_path, index=False)
             logging.info('Raw data saved to concered directory')
 
-            df_train.to_csv(self.data_ingestion_config.train_file_path)
+            df_train.to_csv(self.data_ingestion_config.train_file_path, index=False)
             logging.info('Training data saved to concered directory')
 
-            df_test.to_csv(self.data_ingestion_config.test_file_path)
+            df_test.to_csv(self.data_ingestion_config.test_file_path, index=False)
             logging.info('Testing data saved to concered directory')
 
             data_ingestion_artifact = DataIngestionArtifact(
