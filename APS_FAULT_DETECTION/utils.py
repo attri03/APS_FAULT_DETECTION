@@ -4,6 +4,9 @@ from APS_FAULT_DETECTION.exception import CustomException
 import os, sys
 from APS_FAULT_DETECTION.logger import logging
 import yaml
+import numpy as np
+from numpy import save
+import pickle
 
 def get_collection_as_dataframe(Database_name:str, Collection_name:str)->pd.DataFrame:
     try:
@@ -33,5 +36,17 @@ def object_to_float(data, TARGET_COLUMN, kind):
                 data[column] = data[column].astype(float)
         logging.info(f'Converted data types from object to float for {kind} data')
         return data
+    except Exception as e:
+        raise CustomException(e, sys)
+    
+def save_numpy_file(data, path):
+    try:
+        save(path, data)
+    except Exception as e:
+        raise CustomException(e, sys)
+    
+def creating_pickle_file(variable, path):
+    try:
+        pickle.dump(variable, open(path,'wb'))
     except Exception as e:
         raise CustomException(e, sys)

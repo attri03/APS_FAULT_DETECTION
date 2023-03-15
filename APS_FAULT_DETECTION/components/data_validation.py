@@ -9,8 +9,8 @@ import numpy as np
 from APS_FAULT_DETECTION.utils import create_yaml_file, object_to_float
 
 class DataValidation:
-    def __init__(self, data_validation_config = DataValidationConfig, 
-                 data_ingestion_artifact = DataIngestionArtifact
+    def __init__(self, data_validation_config : DataValidationConfig, 
+                 data_ingestion_artifact : DataIngestionArtifact
                  ):
         try:
             self.data_validation_config = data_validation_config

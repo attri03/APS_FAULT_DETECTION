@@ -9,7 +9,7 @@ from APS_FAULT_DETECTION.exception import CustomException
 from APS_FAULT_DETECTION.logger import logging
 
 class DataIngestion:
-    def __init__(self, data_ingestion_config = DataIngestionConfig()):
+    def __init__(self, data_ingestion_config : DataIngestionConfig):
         try:
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:

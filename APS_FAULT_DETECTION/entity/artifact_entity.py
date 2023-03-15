@@ -9,3 +9,10 @@ class DataIngestionArtifact:
 @dataclass
 class DataValidationArtifact:
     report_path:str
+
+@dataclass
+class DataTransformationArtifact:
+    transformed_train_data:str
+    transformed_test_data:str
+    encoder_file_path:str
+    transformer_file_path:str
