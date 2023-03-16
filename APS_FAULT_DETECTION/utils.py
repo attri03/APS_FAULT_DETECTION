@@ -5,7 +5,7 @@ import os, sys
 from APS_FAULT_DETECTION.logger import logging
 import yaml
 import numpy as np
-from numpy import save
+from numpy import save, load
 import pickle
 
 def get_collection_as_dataframe(Database_name:str, Collection_name:str)->pd.DataFrame:
@@ -42,6 +42,13 @@ def object_to_float(data, TARGET_COLUMN, kind):
 def save_numpy_file(data, path):
     try:
         save(path, data)
+    except Exception as e:
+        raise CustomException(e, sys)
+    
+def load_numpy_file(path):
+    try:
+        array = load(path)
+        return array
     except Exception as e:
         raise CustomException(e, sys)
     

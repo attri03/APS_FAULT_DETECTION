@@ -9,6 +9,7 @@ TRANSFORMER_FILE_NAME = 'transformer.pkl'
 ENCODER_FILE_NAME ='encoder.pkl'
 TRANSFORMED_TRAIN_DATA = 'transformed_train.npy'
 TRANSFORMED_TEST_DATA = 'transformed_test.npy'
+MODEL_FILE = 'model.pkl'
 
 class TrainingPipelineConfig:
     def __init__(self):
@@ -36,3 +37,9 @@ class DataTransformationConfig:
         self.encoder_file_path:str = os.path.join(training_pipeline_config.artifact_dir, 'data_transformation', ENCODER_FILE_NAME)
         self.transformed_train_data:str = os.path.join(training_pipeline_config.artifact_dir, 'data_transformation', TRANSFORMED_TRAIN_DATA)
         self.transformed_test_data:str = os.path.join(training_pipeline_config.artifact_dir, 'data_transformation', TRANSFORMED_TEST_DATA)
+
+class ModelTrainerConfig:
+    def __init__(self, training_pipeline_config = TrainingPipelineConfig()):
+        self.model_path = os.path.join(training_pipeline_config.artifact_dir, 'model_trainer', MODEL_FILE)
+        self.expected_score = 0.7
+        self.threshold_value = 0.1

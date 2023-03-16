@@ -16,3 +16,10 @@ class DataTransformationArtifact:
     transformed_test_data:str
     encoder_file_path:str
     transformer_file_path:str
+
+@dataclass
+class ModelTrainerArtifact:
+    model_file:str
+    f1_training_score:float
+    f1_testing_score:float
+
